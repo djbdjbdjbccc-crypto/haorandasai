@@ -3,160 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HAORANDASAI · 个人 Coding 大赏</title>
-<meta name="description" content="Taylor 的个人 Coding 大赏 — 2026 年度项目颁奖典礼">
+<title>HAORANDASAI · 我的项目仓库</title>
 <style>
   :root{
-    --bg:#0d0b08; --bg2:#161209; --card:#1a160e; --line:#3a2f1a;
-    --gold:#d4af37; --gold2:#f0d47a; --gold-dim:#9a7f2e;
-    --text:#f3ead3; --muted:#b8ab8d; --red:#c8402a;
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2d333b;
+    --text:#e6edf3; --muted:#8b949e; --accent:#58a6ff; --green:#3fb950;
+    --mono:"JetBrains Mono","Fira Code",Consolas,"Courier New",monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.7;overflow-x:hidden}
-  .serif{font-family:"Noto Serif SC","Songti SC","SimSun",serif}
-  /* ---------- hero ---------- */
-  .hero{position:relative;text-align:center;padding:110px 24px 90px;background:radial-gradient(ellipse 80% 55% at 50% -5%,rgba(212,175,55,.20),transparent 60%),linear-gradient(180deg,var(--bg2),var(--bg))}
-  .hero::before,.hero::after{content:"";position:absolute;top:0;width:120px;height:100%;background:linear-gradient(90deg,rgba(200,64,42,.20),transparent);pointer-events:none}
-  .hero::before{left:0}.hero::after{right:0;transform:scaleX(-1)}
-  .kicker{letter-spacing:.55em;font-size:12px;color:var(--gold);text-transform:uppercase;margin-bottom:22px}
-  .hero h1{font-size:clamp(44px,9vw,96px);font-weight:900;line-height:1.15;background:linear-gradient(180deg,#f7e7ac 20%,var(--gold) 55%,#8a6d1f);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero .sub{margin-top:18px;font-size:clamp(16px,3vw,22px);color:var(--muted);letter-spacing:.3em}
-  .hero .host{margin-top:34px;display:inline-block;border:1px solid var(--line);border-radius:999px;padding:8px 26px;font-size:14px;color:var(--gold2);background:rgba(212,175,55,.06)}
-  .trophy{width:74px;height:74px;margin:0 auto 26px;display:block}
-  .scroll-hint{margin-top:56px;font-size:12px;color:var(--gold-dim);letter-spacing:.4em;animation:bob 2.2s ease-in-out infinite}
-  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
-  /* ---------- stats ---------- */
-  .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(212,175,55,.03)}
-  .stat{padding:26px 42px;text-align:center;border-right:1px solid var(--line)}
-  .stat:last-child{border-right:none}
-  .stat b{display:block;font-size:34px;color:var(--gold2);font-weight:800;line-height:1.2}
-  .stat span{font-size:13px;color:var(--muted);letter-spacing:.2em}
-  /* ---------- awards ---------- */
-  .wrap{max-width:1080px;margin:0 auto;padding:80px 24px 30px}
-  .sec-title{text-align:center;margin-bottom:14px;font-size:clamp(26px,5vw,38px);font-weight:800}
-  .sec-title em{font-style:normal;color:var(--gold)}
-  .sec-sub{text-align:center;color:var(--muted);margin-bottom:52px;font-size:15px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
-  .card{background:linear-gradient(165deg,var(--card),#100d07);border:1px solid var(--line);border-radius:14px;padding:30px 28px;position:relative;transition:transform .25s ease,border-color .25s ease}
-  .card:hover{transform:translateY(-5px);border-color:var(--gold-dim)}
-  .card .award{display:inline-block;font-size:12px;letter-spacing:.25em;color:#0d0b08;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:4px;padding:4px 12px;font-weight:700;margin-bottom:16px}
-  .card h3{font-size:21px;font-weight:800;margin-bottom:10px;line-height:1.45}
-  .card p{font-size:14.5px;color:var(--muted)}
-  .card .meta{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--gold-dim);letter-spacing:.08em}
-  .card.grand{grid-column:1/-1;background:linear-gradient(140deg,#241b09,#120e05 70%);border-color:var(--gold-dim);text-align:center;padding:46px 34px}
-  .card.grand h3{font-size:clamp(24px,4.5vw,34px)}
-  .card.grand p{max-width:640px;margin:0 auto}
-  .medal{width:46px;height:46px;margin-bottom:14px}
-  /* ---------- speech ---------- */
-  .speech{max-width:760px;margin:90px auto 0;padding:0 24px;text-align:center}
-  .speech .q{font-size:clamp(19px,3.4vw,25px);line-height:1.9;color:var(--text)}
-  .speech .q b{color:var(--gold2)}
-  .speech .from{margin-top:20px;color:var(--muted);font-size:14px;letter-spacing:.3em}
-  /* ---------- footer ---------- */
-  footer{margin-top:100px;border-top:1px solid var(--line);padding:44px 24px 54px;text-align:center;color:var(--muted);font-size:13.5px;background:var(--bg2)}
-  footer .dom{color:var(--gold2);letter-spacing:.15em}
-  footer .fam{margin-top:10px;font-size:12.5px;color:var(--gold-dim)}
-  @media (max-width:560px){.stat{padding:20px 22px}.hero{padding:80px 18px 70px}}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 20px 64px}
+
+  header{padding:52px 0 8px}
+  .prompt{font-family:var(--mono);color:var(--green);font-size:14px}
+  h1{font-size:34px;font-weight:700;letter-spacing:.5px;margin:10px 0 6px}
+  h1 .tld{color:var(--muted);font-weight:400}
+  .sub{color:var(--muted);font-size:15px;max-width:640px}
+  .stats{font-family:var(--mono);color:var(--muted);font-size:13px;margin-top:16px}
+  .stats b{color:var(--text);font-weight:600}
+
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0 6px}
+  .toolbar input{flex:1;min-width:200px;background:var(--panel);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:9px 13px;font-size:14px;outline:none}
+  .toolbar input:focus{border-color:var(--accent)}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 20px}
+  .tag{font-family:var(--mono);font-size:12px;padding:4px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted);cursor:pointer;background:transparent}
+  .tag:hover{color:var(--text);border-color:var(--muted)}
+  .tag.on{color:#0d1117;background:var(--accent);border-color:var(--accent);font-weight:600}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s}
+  .card:hover{border-color:var(--accent)}
+  .card h3{font-size:16.5px;line-height:1.4}
+  .card p{color:var(--muted);font-size:13.5px;flex:1}
+  .meta{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .status{color:var(--green)}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:1px 8px}
+  .empty{color:var(--muted);font-family:var(--mono);font-size:14px;padding:28px 0}
+
+  section.how{margin-top:52px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px}
+  section.how h2{font-size:18px;margin-bottom:10px}
+  section.how p,section.how li{color:var(--muted);font-size:14px}
+  section.how ol{margin:8px 0 8px 20px}
+  section.how code{font-family:var(--mono);background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12.5px;color:var(--text)}
+  pre{font-family:var(--mono);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:13px 15px;font-size:12.5px;overflow-x:auto;color:var(--text);margin-top:10px}
+
+  footer{margin-top:44px;color:var(--muted);font-family:var(--mono);font-size:12.5px;border-top:1px solid var(--line);padding-top:18px}
 </style>
 </head>
 <body>
+<div class="wrap">
+  <header>
+    <div class="prompt">$ whoami — xu shuo / taylor</div>
+    <h1>HAORANDASAI<span class="tld">.eu.cc</span></h1>
+    <p class="sub">我自己的代码与项目仓库。写的东西、部署过的东西、正在跑的东西，都往这里存，持续更新。</p>
+    <div class="stats" id="stats">loading…</div>
+  </header>
 
-<header class="hero">
-  <svg class="trophy" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-    <path d="M20 6h24v6h10a10 10 0 0 1-10.4 12.03A14 14 0 0 1 35 30.92V40h6v6H23v-6h6v-9.08A14 14 0 0 1 20.4 24.03 10 10 0 0 1 10 12h10V6zm-6 10a6 6 0 0 0 5.6 5.97A20.6 20.6 0 0 1 19 16h-5zm36 0h-5a20.6 20.6 0 0 1-.6 5.97A6 6 0 0 0 50 16zM18 50h28v8H18z" fill="#d4af37"/>
-  </svg>
-  <div class="kicker">Haorandasai · Annual Awards</div>
-  <h1 class="serif">个人 Coding 大赏</h1>
-  <div class="sub">2 0 2 6 年 度 颁 奖 典 礼</div>
-  <div class="host">主办 &amp; 唯一参赛选手 — Taylor（徐硕）</div>
-  <div class="scroll-hint">▼ 获奖名单 ▼</div>
-</header>
-
-<section class="stats">
-  <div class="stat"><b>15+</b><span>已安装 SKILL</span></div>
-  <div class="stat"><b>8</b><span>已连接器</span></div>
-  <div class="stat"><b>3</b><span>免费域名</span></div>
-  <div class="stat"><b>$0.00</b><span>域名总花费</span></div>
-  <div class="stat"><b>24h</b><span>情报自动采集</span></div>
-</section>
-
-<main class="wrap">
-  <h2 class="sec-title serif">获奖 <em>名单</em></h2>
-  <p class="sec-sub">以下项目全部真实存在、真实跑通 — 本大赏不设提名环节，因为全都获奖了。</p>
-
-  <div class="grid">
-
-    <article class="card grand">
-      <svg class="medal" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="19" r="12" fill="#d4af37"/><path d="M18 29 L14 44 L24 38 L34 44 L30 29" stroke="#c8402a" stroke-width="4" fill="none"/></svg>
-      <span class="award">年度大奖 · 最佳短片</span>
-      <h3 class="serif">《我中了500万》</h3>
-      <p>60 秒竖屏火柴人反转短剧。主角把超市小票当成中奖彩票，当场辞职庆祝 — 直到店员把票翻过来。分段生成、逐帧核验、无缝拼接，一气呵成。</p>
-      <div class="meta">抖音竖屏 · 58.6 秒 · 四段拼接零穿帮</div>
-    </article>
-
-    <article class="card">
-      <span class="award">最佳 AI 影像部署</span>
-      <h3 class="serif">MiniMax H3 + LoRA 实机部署</h3>
-      <p>在 Colab L4 上把 42GB 的模型栈从零跑通：GGUF 量化、文本编码器、双 VAE、LoRA 全链路打通，8 秒视频生成实测封顶。</p>
-      <div class="meta">Colab L4 · 23GB 显存压线通过</div>
-    </article>
-
-    <article class="card">
-      <span class="award">最佳情报系统</span>
-      <h3 class="serif">GLOBAL DEAL HUNTER</h3>
-      <p>全球羊毛情报中心：AI 订阅、空投、云服务、软件优惠九大板块，每 2 小时自动采集，免费与试用严格区分，未核实的不装真。</p>
-      <div class="meta">每 2 小时自动更新 · 200+ 条情报在库</div>
-    </article>
-
-    <article class="card">
-      <span class="award">最佳内容工厂</span>
-      <h3 class="serif">抖音 AI 美女账号</h3>
-      <p>固定人物档案锁脸、每日 5 条流水线、封面标题文案全配齐，再用完播率和点赞率定砍选题的规矩 — 数据说了算。</p>
-      <div class="meta">人物一致性 · 数据驱动迭代</div>
-    </article>
-
-    <article class="card">
-      <span class="award">最佳自动化</span>
-      <h3 class="serif">n8n 内容生产流水线</h3>
-      <p>把文案、配音、字幕、文件处理串成一条自动化链路 — 批量生产不靠手搓，一次配置，反复出片。</p>
-      <div class="meta">文案 → 配音 → 字幕 → 成片</div>
-    </article>
-
-    <article class="card">
-      <span class="award">最佳军火库</span>
-      <h3 class="serif">GitHub Skill 收藏夹</h3>
-      <p>15+ 个开源 Skill 与工具的收藏、安装与实测库：写作去 AI 味、设计风格影片、长海报制作、提示词优化……件件验过货。</p>
-      <div class="meta">收藏 + 安装 + 实测，三件套</div>
-    </article>
-
-    <article class="card">
-      <span class="award">最佳设计短片</span>
-      <h3 class="serif">《一滴水，看见汪洋》</h3>
-      <p>用 design-style 风格库做的 18 秒水主题宣传片：从接触表到关键帧逐级审片，平滑度量化过关才交付。</p>
-      <div class="meta">1920×1080 · 60fps · 18 秒</div>
-    </article>
-
-    <article class="card">
-      <span class="award">最佳零元购</span>
-      <h3 class="serif">三个域名，$0.00 全额拿下</h3>
-      <p>xhuso.eu.cc、haorandasai.eu.cc、simeiqi.eu.cc — 三张全额优惠券分毫不差全部用上，总花费：零。本页面即为物证之一。</p>
-      <div class="meta">2026-11-20 注册 · 2027-11-20 到期</div>
-    </article>
-
+  <div class="toolbar">
+    <input id="q" type="text" placeholder="搜索项目名、描述、标签…">
   </div>
+  <div class="tags" id="tags"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">// 没有匹配的项目</div>
 
-  <section class="speech">
-    <p class="q serif">「获奖感言就一句：<b>想法不值钱，跑通才算数。</b><br>每一个项目，都是从一句『装这个』开始，到亲眼验过货结束。」</p>
-    <p class="from">— Taylor，本届大赏全部获奖者</p>
+  <section class="how">
+    <h2>怎么往这里加项目</h2>
+    <p>这个页面读的是仓库里的 <code>projects.json</code>，加项目 = 往这个文件里加一条，再 push 上去，约 1 分钟自动更新：</p>
+    <ol>
+      <li>手动：编辑 <code>projects.json</code>，照下面的格式加一条，<code>git add . &amp;&amp; git commit -m "add project" &amp;&amp; git push</code></li>
+      <li>用 agy：在仓库文件夹里跟它说“把 XX 项目加到 projects.json，描述是……”</li>
+      <li>或者直接告诉天天，报项目名和一句话描述就行</li>
+    </ol>
+    <pre>{
+  "name": "项目名",
+  "desc": "一句话到三句话的说明",
+  "tags": ["标签1", "标签2"],
+  "date": "2026-11",
+  "status": "进行中",
+  "link": "https://……（可选）"
+}</pre>
+    <p style="margin-top:10px">项目文件本身也可以直接放进仓库的文件夹里，再在 <code>link</code> 里写相对路径指过去。</p>
   </section>
-</main>
 
-<footer>
-  <div class="dom">HAORANDASAI.EU.CC</div>
-  <div>个人 Coding 大赏组委会 · 永久有效 · 不接受申诉</div>
-  <div class="fam">姐妹赛场：xhuso.eu.cc · simeiqi.eu.cc</div>
-</footer>
+  <footer>
+    repo: github.com/djbdjbdjbccc-crypto/haorandasai · hosted on GitHub Pages · © 2026 Xu Shuo
+  </footer>
+</div>
 
+<script>
+let DATA = [], activeTag = null;
+const grid = document.getElementById('grid');
+const emptyEl = document.getElementById('empty');
+const tagsEl = document.getElementById('tags');
+const qEl = document.getElementById('q');
+
+function render(){
+  const q = qEl.value.trim().toLowerCase();
+  const list = DATA.filter(p => {
+    if (activeTag && !(p.tags || []).includes(activeTag)) return false;
+    if (!q) return true;
+    const hay = (p.name + ' ' + (p.desc||'') + ' ' + (p.tags||[]).join(' ')).toLowerCase();
+    return hay.includes(q);
+  });
+  grid.innerHTML = list.map(p => `
+    <article class="card">
+      <h3>${p.link ? `<a href="${p.link}" target="_blank" rel="noopener">${p.name}</a>` : p.name}</h3>
+      <p>${p.desc || ''}</p>
+      <div class="chips">${(p.tags||[]).map(t => `<span class="chip">${t}</span>`).join('')}</div>
+      <div class="meta"><span>${p.date || ''}</span><span class="status">${p.status || ''}</span></div>
+    </article>`).join('');
+  emptyEl.style.display = list.length ? 'none' : 'block';
+}
+
+function renderTags(){
+  const all = [...new Set(DATA.flatMap(p => p.tags || []))];
+  tagsEl.innerHTML = all.map(t =>
+    `<button class="tag ${t === activeTag ? 'on' : ''}" data-t="${t}">${t}</button>`).join('');
+  tagsEl.querySelectorAll('.tag').forEach(b => b.onclick = () => {
+    activeTag = activeTag === b.dataset.t ? null : b.dataset.t;
+    renderTags(); render();
+  });
+}
+
+fetch('projects.json')
+  .then(r => r.json())
+  .then(d => {
+    DATA = d;
+    document.getElementById('stats').innerHTML =
+      `<b>${d.length}</b> 个项目 · 最近更新 <b>${d.map(p=>p.date||'').sort().pop() || ''}</b>`;
+    renderTags(); render();
+  })
+  .catch(() => {
+    document.getElementById('stats').textContent = 'projects.json 加载失败';
+  });
+
+qEl.addEventListener('input', render);
+</script>
 </body>
 </html>
