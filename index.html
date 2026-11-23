@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAORANDASAI · 个人 Coding 大赏</title>
+<meta name="description" content="Taylor 的个人 Coding 大赏 — 2026 年度项目颁奖典礼">
+<style>
+  :root{
+    --bg:#0d0b08; --bg2:#161209; --card:#1a160e; --line:#3a2f1a;
+    --gold:#d4af37; --gold2:#f0d47a; --gold-dim:#9a7f2e;
+    --text:#f3ead3; --muted:#b8ab8d; --red:#c8402a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.7;overflow-x:hidden}
+  .serif{font-family:"Noto Serif SC","Songti SC","SimSun",serif}
+  /* ---------- hero ---------- */
+  .hero{position:relative;text-align:center;padding:110px 24px 90px;background:radial-gradient(ellipse 80% 55% at 50% -5%,rgba(212,175,55,.20),transparent 60%),linear-gradient(180deg,var(--bg2),var(--bg))}
+  .hero::before,.hero::after{content:"";position:absolute;top:0;width:120px;height:100%;background:linear-gradient(90deg,rgba(200,64,42,.20),transparent);pointer-events:none}
+  .hero::before{left:0}.hero::after{right:0;transform:scaleX(-1)}
+  .kicker{letter-spacing:.55em;font-size:12px;color:var(--gold);text-transform:uppercase;margin-bottom:22px}
+  .hero h1{font-size:clamp(44px,9vw,96px);font-weight:900;line-height:1.15;background:linear-gradient(180deg,#f7e7ac 20%,var(--gold) 55%,#8a6d1f);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{margin-top:18px;font-size:clamp(16px,3vw,22px);color:var(--muted);letter-spacing:.3em}
+  .hero .host{margin-top:34px;display:inline-block;border:1px solid var(--line);border-radius:999px;padding:8px 26px;font-size:14px;color:var(--gold2);background:rgba(212,175,55,.06)}
+  .trophy{width:74px;height:74px;margin:0 auto 26px;display:block}
+  .scroll-hint{margin-top:56px;font-size:12px;color:var(--gold-dim);letter-spacing:.4em;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+  /* ---------- stats ---------- */
+  .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(212,175,55,.03)}
+  .stat{padding:26px 42px;text-align:center;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat b{display:block;font-size:34px;color:var(--gold2);font-weight:800;line-height:1.2}
+  .stat span{font-size:13px;color:var(--muted);letter-spacing:.2em}
+  /* ---------- awards ---------- */
+  .wrap{max-width:1080px;margin:0 auto;padding:80px 24px 30px}
+  .sec-title{text-align:center;margin-bottom:14px;font-size:clamp(26px,5vw,38px);font-weight:800}
+  .sec-title em{font-style:normal;color:var(--gold)}
+  .sec-sub{text-align:center;color:var(--muted);margin-bottom:52px;font-size:15px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
+  .card{background:linear-gradient(165deg,var(--card),#100d07);border:1px solid var(--line);border-radius:14px;padding:30px 28px;position:relative;transition:transform .25s ease,border-color .25s ease}
+  .card:hover{transform:translateY(-5px);border-color:var(--gold-dim)}
+  .card .award{display:inline-block;font-size:12px;letter-spacing:.25em;color:#0d0b08;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:4px;padding:4px 12px;font-weight:700;margin-bottom:16px}
+  .card h3{font-size:21px;font-weight:800;margin-bottom:10px;line-height:1.45}
+  .card p{font-size:14.5px;color:var(--muted)}
+  .card .meta{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--gold-dim);letter-spacing:.08em}
+  .card.grand{grid-column:1/-1;background:linear-gradient(140deg,#241b09,#120e05 70%);border-color:var(--gold-dim);text-align:center;padding:46px 34px}
+  .card.grand h3{font-size:clamp(24px,4.5vw,34px)}
+  .card.grand p{max-width:640px;margin:0 auto}
+  .medal{width:46px;height:46px;margin-bottom:14px}
+  /* ---------- speech ---------- */
+  .speech{max-width:760px;margin:90px auto 0;padding:0 24px;text-align:center}
+  .speech .q{font-size:clamp(19px,3.4vw,25px);line-height:1.9;color:var(--text)}
+  .speech .q b{color:var(--gold2)}
+  .speech .from{margin-top:20px;color:var(--muted);font-size:14px;letter-spacing:.3em}
+  /* ---------- footer ---------- */
+  footer{margin-top:100px;border-top:1px solid var(--line);padding:44px 24px 54px;text-align:center;color:var(--muted);font-size:13.5px;background:var(--bg2)}
+  footer .dom{color:var(--gold2);letter-spacing:.15em}
+  footer .fam{margin-top:10px;font-size:12.5px;color:var(--gold-dim)}
+  @media (max-width:560px){.stat{padding:20px 22px}.hero{padding:80px 18px 70px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="trophy" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+    <path d="M20 6h24v6h10a10 10 0 0 1-10.4 12.03A14 14 0 0 1 35 30.92V40h6v6H23v-6h6v-9.08A14 14 0 0 1 20.4 24.03 10 10 0 0 1 10 12h10V6zm-6 10a6 6 0 0 0 5.6 5.97A20.6 20.6 0 0 1 19 16h-5zm36 0h-5a20.6 20.6 0 0 1-.6 5.97A6 6 0 0 0 50 16zM18 50h28v8H18z" fill="#d4af37"/>
+  </svg>
+  <div class="kicker">Haorandasai · Annual Awards</div>
+  <h1 class="serif">个人 Coding 大赏</h1>
+  <div class="sub">2 0 2 6 年 度 颁 奖 典 礼</div>
+  <div class="host">主办 &amp; 唯一参赛选手 — Taylor（徐硕）</div>
+  <div class="scroll-hint">▼ 获奖名单 ▼</div>
+</header>
+
+<section class="stats">
+  <div class="stat"><b>15+</b><span>已安装 SKILL</span></div>
+  <div class="stat"><b>8</b><span>已连接器</span></div>
+  <div class="stat"><b>3</b><span>免费域名</span></div>
+  <div class="stat"><b>$0.00</b><span>域名总花费</span></div>
+  <div class="stat"><b>24h</b><span>情报自动采集</span></div>
+</section>
+
+<main class="wrap">
+  <h2 class="sec-title serif">获奖 <em>名单</em></h2>
+  <p class="sec-sub">以下项目全部真实存在、真实跑通 — 本大赏不设提名环节，因为全都获奖了。</p>
+
+  <div class="grid">
+
+    <article class="card grand">
+      <svg class="medal" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="19" r="12" fill="#d4af37"/><path d="M18 29 L14 44 L24 38 L34 44 L30 29" stroke="#c8402a" stroke-width="4" fill="none"/></svg>
+      <span class="award">年度大奖 · 最佳短片</span>
+      <h3 class="serif">《我中了500万》</h3>
+      <p>60 秒竖屏火柴人反转短剧。主角把超市小票当成中奖彩票，当场辞职庆祝 — 直到店员把票翻过来。分段生成、逐帧核验、无缝拼接，一气呵成。</p>
+      <div class="meta">抖音竖屏 · 58.6 秒 · 四段拼接零穿帮</div>
+    </article>
+
+    <article class="card">
+      <span class="award">最佳 AI 影像部署</span>
+      <h3 class="serif">MiniMax H3 + LoRA 实机部署</h3>
+      <p>在 Colab L4 上把 42GB 的模型栈从零跑通：GGUF 量化、文本编码器、双 VAE、LoRA 全链路打通，8 秒视频生成实测封顶。</p>
+      <div class="meta">Colab L4 · 23GB 显存压线通过</div>
+    </article>
+
+    <article class="card">
+      <span class="award">最佳情报系统</span>
+      <h3 class="serif">GLOBAL DEAL HUNTER</h3>
+      <p>全球羊毛情报中心：AI 订阅、空投、云服务、软件优惠九大板块，每 2 小时自动采集，免费与试用严格区分，未核实的不装真。</p>
+      <div class="meta">每 2 小时自动更新 · 200+ 条情报在库</div>
+    </article>
+
+    <article class="card">
+      <span class="award">最佳内容工厂</span>
+      <h3 class="serif">抖音 AI 美女账号</h3>
+      <p>固定人物档案锁脸、每日 5 条流水线、封面标题文案全配齐，再用完播率和点赞率定砍选题的规矩 — 数据说了算。</p>
+      <div class="meta">人物一致性 · 数据驱动迭代</div>
+    </article>
+
+    <article class="card">
+      <span class="award">最佳自动化</span>
+      <h3 class="serif">n8n 内容生产流水线</h3>
+      <p>把文案、配音、字幕、文件处理串成一条自动化链路 — 批量生产不靠手搓，一次配置，反复出片。</p>
+      <div class="meta">文案 → 配音 → 字幕 → 成片</div>
+    </article>
+
+    <article class="card">
+      <span class="award">最佳军火库</span>
+      <h3 class="serif">GitHub Skill 收藏夹</h3>
+      <p>15+ 个开源 Skill 与工具的收藏、安装与实测库：写作去 AI 味、设计风格影片、长海报制作、提示词优化……件件验过货。</p>
+      <div class="meta">收藏 + 安装 + 实测，三件套</div>
+    </article>
+
+    <article class="card">
+      <span class="award">最佳设计短片</span>
+      <h3 class="serif">《一滴水，看见汪洋》</h3>
+      <p>用 design-style 风格库做的 18 秒水主题宣传片：从接触表到关键帧逐级审片，平滑度量化过关才交付。</p>
+      <div class="meta">1920×1080 · 60fps · 18 秒</div>
+    </article>
+
+    <article class="card">
+      <span class="award">最佳零元购</span>
+      <h3 class="serif">三个域名，$0.00 全额拿下</h3>
+      <p>xhuso.eu.cc、haorandasai.eu.cc、simeiqi.eu.cc — 三张全额优惠券分毫不差全部用上，总花费：零。本页面即为物证之一。</p>
+      <div class="meta">2026-11-20 注册 · 2027-11-20 到期</div>
+    </article>
+
+  </div>
+
+  <section class="speech">
+    <p class="q serif">「获奖感言就一句：<b>想法不值钱，跑通才算数。</b><br>每一个项目，都是从一句『装这个』开始，到亲眼验过货结束。」</p>
+    <p class="from">— Taylor，本届大赏全部获奖者</p>
+  </section>
+</main>
+
+<footer>
+  <div class="dom">HAORANDASAI.EU.CC</div>
+  <div>个人 Coding 大赏组委会 · 永久有效 · 不接受申诉</div>
+  <div class="fam">姐妹赛场：xhuso.eu.cc · simeiqi.eu.cc</div>
+</footer>
+
+</body>
+</html>
